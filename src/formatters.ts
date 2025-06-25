@@ -98,7 +98,7 @@ export function formatRequestBody({
     if (cliOptions.tools === 'none') {
       return JSON.stringify(omit(parsed, 'tools'), null, 2);
     } else if (cliOptions.tools === 'name') {
-      const toolNames = parsed.tools.map(
+      const toolNames = parsed.tools?.map(
         (tool) => tool.name ?? tool?.function?.name,
       ); // only show tool names
       const output = { ...parsed, tools: toolNames };
